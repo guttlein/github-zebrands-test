@@ -21,3 +21,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 Open [http://localhost:3000/repositories](http://localhost:3000/repositories) with your browser to see the repositories search or click on the link provided on the main page.
 
 Open [http://localhost:3000/users](http://localhost:3000/users) with your browser to see the users search or click on the link provided on the main page.
+
+## Website URL
+
+The site is deployed in Vercel at: [https://github-zebrands-test.vercel.app/](https://github-zebrands-test.vercel.app/). Feel free to check it.

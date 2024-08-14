@@ -28,7 +28,7 @@ export const Pagination = ({
   return (
     <Flex mb={4} mt={4}>
       <Button
-        disabled={currentPage > 1 ? false : true}
+        isDisabled={currentPage > 1 ? false : true}
         leftIcon={<ChevronLeftIcon />}
         colorScheme="blue"
         variant="solid"
@@ -39,10 +39,11 @@ export const Pagination = ({
       </Button>
       <Spacer />
       <Center bg="rgb(91, 153, 194)" h="40px" minW={40} color="white">
-        {currentPage}
+        {currentPage} ... {pageLimit}
       </Center>
       <Spacer />
       <Button
+        isDisabled={currentPage == pageLimit ? true : false}
         rightIcon={<ChevronRightIcon />}
         colorScheme="blue"
         variant="solid"
