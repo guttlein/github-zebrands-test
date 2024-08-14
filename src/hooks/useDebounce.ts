@@ -1,7 +1,7 @@
 import { useEffect, useCallback, DependencyList } from "react";
 
 export default function useDebounce(
-  effect: any,
+  effect: () => void,
   dependencies: DependencyList,
   delay: number
 ) {

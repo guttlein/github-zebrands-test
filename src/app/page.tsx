@@ -1,20 +1,30 @@
 "use client";
 import {
   AbsoluteCenter,
+  Box,
   Card,
   CardBody,
   CardFooter,
   Flex,
   Heading,
   Image,
+  Input,
   Spacer,
 } from "@chakra-ui/react";
 import styles from "./page.module.css";
 import { Link } from "@chakra-ui/next-js";
 import { useScreenDetector } from "@hooks/useScreenDetector";
+import { useState } from "react";
 
 export default function Home() {
   const { isMobile, isTablet } = useScreenDetector();
+  const [ghToken, setGhToken] = useState("");
+
+  const saveToLocalStorage = (e: { preventDefault: () => void }) => {
+    e.preventDefault();
+    localStorage.setItem("ghToken", ghToken);
+  };
+
   return (
     <main className={styles.main}>
       <Heading
@@ -25,6 +35,37 @@ export default function Home() {
       >
         GitHub Search Engine
       </Heading>
+
+      {/* GitHub Secret Token to use the API */}
+      <Box bg="rgb(91, 153, 194)" m={10} p={4} color="white">
+        <form onSubmit={saveToLocalStorage}>
+          In order to use the GitHub API, you need to set you personal token.
+          <Input
+            mt={10}
+            mb={4}
+            placeholder="Token"
+            color="rgb(249, 219, 186)"
+            onChange={(e) => setGhToken(e.target.value)}
+          />
+          If you are not sure how to create your own token, please click
+          <a
+            target="_blank"
+            href="https://github.com/settings/tokens"
+            rel="noopener noreferrer"
+          >
+            HERE
+          </a>
+          <Input
+            mt={10}
+            mb={4}
+            type="submit"
+            color="rgb(249, 219, 186)"
+            value="Save"
+          />
+        </form>
+      </Box>
+
+      {/* Main Search Options */}
       <Flex
         minWidth="max-content"
         flexDirection={isMobile ? "column" : isTablet ? "row" : "row"}

@@ -14,7 +14,8 @@ type props = {
 };
 
 export const SearchBar = ({ query, setQuery, searchParameter }: props) => {
-  const handleSearch = (e) => setQuery(e.target.value);
+  const handleSearch = (e: { target: { value: SetStateAction<string> } }) =>
+    setQuery(e.target.value);
 
   return (
     <Container maxW="md" centerContent>

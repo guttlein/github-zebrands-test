@@ -5,25 +5,23 @@ import React, { Dispatch, SetStateAction } from "react";
 
 type pageProps = {
   currentPage: number;
-  setPage: Dispatch<SetStateAction<number>>;
+  pageChange: (value: number) => void;
   pageLimit: number;
 };
 
-export const Pagination = ({ currentPage, setPage, pageLimit }: pageProps) => {
+export const Pagination = ({
+  currentPage,
+  pageChange,
+  pageLimit,
+}: pageProps) => {
   const { isMobile } = useScreenDetector();
 
   const handleClick = (origin: string) => {
     if (origin === "next" && currentPage < pageLimit) {
-      setPage((prevState) => ({
-        ...prevState,
-        page: currentPage + 1,
-      }));
+      pageChange(currentPage + 1);
     }
     if (origin === "prev" && currentPage > 1) {
-      setPage((prevState) => ({
-        ...prevState,
-        page: currentPage - 1,
-      }));
+      pageChange(currentPage - 1);
     }
   };
 

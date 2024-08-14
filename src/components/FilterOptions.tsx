@@ -8,9 +8,25 @@ import {
   SliderTrack,
   Text,
 } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
 
-export const FilterOptions = ({ filters, setFilters, totalItems }) => {
+type filterType = {
+  per_page: number;
+  page: number;
+  order: string;
+};
+
+type FilterProps = {
+  filters: filterType;
+  setFilters: Dispatch<SetStateAction<filterType>>;
+  totalItems: number;
+};
+
+export const FilterOptions = ({
+  filters,
+  setFilters,
+  totalItems,
+}: FilterProps) => {
   const [sliderValue, setSliderValue] = useState(filters.per_page);
 
   const labelStyles = {
