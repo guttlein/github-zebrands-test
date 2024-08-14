@@ -29,6 +29,8 @@ export const FilterOptions = ({
 }: FilterProps) => {
   const [sliderValue, setSliderValue] = useState(filters.per_page);
 
+  const maxItems = Math.min(totalItems, 100);
+
   const labelStyles = {
     mt: "2",
     ml: "-2.5",
@@ -53,7 +55,7 @@ export const FilterOptions = ({
           mt={10}
           aria-label="slider-ex-6"
           min={1}
-          max={totalItems}
+          max={maxItems}
           defaultValue={sliderValue}
           onChange={(val) => setSliderValue(val)}
           onChangeEnd={(val) => handlePerPageChange(val)}
@@ -61,8 +63,8 @@ export const FilterOptions = ({
           <SliderMark value={sliderValue} {...labelStyles}>
             {sliderValue}
           </SliderMark>
-          <SliderMark value={totalItems} {...labelStyles}>
-            {totalItems}
+          <SliderMark value={maxItems} {...labelStyles}>
+            {maxItems}
           </SliderMark>
           <SliderMark
             value={sliderValue}
@@ -71,7 +73,8 @@ export const FilterOptions = ({
             color="white"
             mt="-10"
             ml="-5"
-            w="12"
+            p={1}
+            w="auto"
           >
             {sliderValue}
           </SliderMark>

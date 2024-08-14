@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styles from "./page.module.css";
 import { Octokit } from "octokit";
 import { SearchBar } from "@components/SearchBar";
@@ -44,9 +44,7 @@ export default function Page({ params }: { params: { searchType: string } }) {
     () => {
       const fetch = async () => {
         setLoading(true);
-        const octokit = new Octokit({
-          auth: localStorage.getItem("ghToken"),
-        });
+        const octokit = new Octokit();
         try {
           const result = await octokit.request(
             `GET /search/${params.searchType}`,
