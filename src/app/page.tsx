@@ -42,7 +42,7 @@ export default function Home() {
           <Card m={4} maxW={isMobile ? "sm" : isTablet ? "xl" : "xl"}>
             <CardBody>
               <Image
-                maxH={isMobile ? "250px" : isTablet ? "400px" : "300px"}
+                maxH={isMobile ? "250px" : isTablet ? "300px" : "300px"}
                 src="https://miro.medium.com/v2/resize:fit:512/1*w07Er4gPg8H2Ew-P0HhxNA.png"
                 alt="gh repo icon"
                 borderRadius="lg"
@@ -66,7 +66,7 @@ export default function Home() {
           <Card m={4} maxW={isMobile ? "sm" : isTablet ? "md" : "xl"}>
             <CardBody>
               <Image
-                maxH={isMobile ? "250px" : isTablet ? "400px" : "300px"}
+                maxH={isMobile ? "250px" : isTablet ? "300px" : "300px"}
                 src="https://static-00.iconduck.com/assets.00/brand-github-icon-2048x1998-kcg9swkt.png"
                 alt="gh user icon"
                 borderRadius="lg"
