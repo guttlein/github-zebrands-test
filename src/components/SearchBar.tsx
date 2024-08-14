@@ -27,7 +27,7 @@ export const SearchBar = ({ query, setQuery, searchParameter }: props) => {
           onChange={handleSearch}
         />
         <InputRightElement pt={2}>
-          <SearchIcon color="rgb(249, 219, 186)" />
+          <SearchIcon role="img" color="rgb(249, 219, 186)" />
         </InputRightElement>
       </InputGroup>
     </Container>

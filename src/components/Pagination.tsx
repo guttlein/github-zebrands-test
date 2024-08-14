@@ -1,7 +1,7 @@
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import { Button, Flex, Spacer, Center } from "@chakra-ui/react";
 import { useScreenDetector } from "@hooks/useScreenDetector";
-import React, { Dispatch, SetStateAction } from "react";
+import React from "react";
 
 type pageProps = {
   currentPage: number;
