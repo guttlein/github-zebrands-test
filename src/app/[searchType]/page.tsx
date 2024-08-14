@@ -8,7 +8,6 @@ import useDebounce from "@hooks/useDebounce";
 import {
   AbsoluteCenter,
   Button,
-  Center,
   Container,
   Flex,
   Heading,
@@ -16,10 +15,6 @@ import {
 } from "@chakra-ui/react";
 import { useScreenDetector } from "@hooks/useScreenDetector";
 import { FilterOptions } from "@components/FilterOptions";
-
-const octokit = new Octokit({
-  auth: "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",
-});
 
 type filterType = {
   per_page: number;
@@ -49,6 +44,9 @@ export default function Page({ params }: { params: { searchType: string } }) {
     () => {
       const fetch = async () => {
         setLoading(true);
+        const octokit = new Octokit({
+          auth: localStorage.getItem("ghToken"),
+        });
         try {
           const result = await octokit.request(
             `GET /search/${params.searchType}`,
