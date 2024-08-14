@@ -11,12 +11,12 @@ import {
 } from "@chakra-ui/react";
 
 type resultProps = {
+  html_url: string;
   id: string;
   avatar: string;
   query: string | string[];
   title: string;
   description?: string;
-  href: string;
   btnText: string;
 };
 

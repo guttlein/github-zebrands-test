@@ -41,6 +41,10 @@ export default function Page({ params }: { params: { searchType: string } }) {
   const { isMobile, isTablet } = useScreenDetector();
   const [showFilters, setShowFilters] = useState(false);
 
+  const handlePageChange = (value: number) => {
+    setFilters({ ...filters, page: value });
+  };
+
   useDebounce(
     () => {
       const fetch = async () => {
@@ -138,7 +142,7 @@ export default function Page({ params }: { params: { searchType: string } }) {
           searchType={params.searchType}
           paginationData={{
             currentPage: filters.page,
-            setPage: setFilters,
+            pageChange: handlePageChange,
             pageLimit: Math.ceil(totalItems / filters.per_page),
           }}
         />

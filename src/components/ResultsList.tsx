@@ -3,6 +3,17 @@ import React from "react";
 import { SearchCard } from "./SearchCard";
 import { Pagination } from "./Pagination";
 
+type resultType = {
+  name: string;
+  html_url: string;
+  avatar_url: string;
+  login: string;
+  owner: any;
+  id: string;
+  description?: string;
+  btnText: string;
+};
+
 export const ResultsList = ({
   query,
   searchResultList,
@@ -15,8 +26,9 @@ export const ResultsList = ({
       {searchResultList.length > 0 && <Pagination {...paginationData} />}
 
       {/* Search Results */}
-      {searchResultList.map((result) => (
+      {searchResultList.map((result: resultType) => (
         <SearchCard
+          key={result.id}
           result={
             searchType === "repositories"
               ? {
@@ -25,7 +37,7 @@ export const ResultsList = ({
                   query,
                   title: result.name,
                   description: result.description || "",
-                  href: result.html_url,
+                  html_url: result.html_url,
                   btnText: "Repository",
                 }
               : {
@@ -33,7 +45,7 @@ export const ResultsList = ({
                   avatar: result.avatar_url,
                   query,
                   title: result.login,
-                  href: result.html_url,
+                  html_url: result.html_url,
                   btnText: "Profile",
                 }
           }
