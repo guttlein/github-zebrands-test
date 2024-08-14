@@ -38,7 +38,13 @@ export const Pagination = ({
         {isMobile ? "" : "Previous Page"}
       </Button>
       <Spacer />
-      <Center bg="rgb(91, 153, 194)" h="40px" minW={40} color="white">
+      <Center
+        bg="rgb(91, 153, 194)"
+        h="40px"
+        minW={40}
+        color="white"
+        role="textbox"
+      >
         {currentPage} ... {pageLimit}
       </Center>
       <Spacer />

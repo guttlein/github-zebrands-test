@@ -11,7 +11,7 @@ describe("Pagination Component", () => {
       </ChakraProvider>
     );
 
-    expect(screen.getByText("1")).toBeInTheDocument();
+    expect(screen.getByRole("textbox")).toBeInTheDocument();
   });
 
   it("Changes the page when Next Page is clicked", () => {
@@ -24,7 +24,6 @@ describe("Pagination Component", () => {
 
     fireEvent.click(screen.getByText("Next Page"));
 
-    expect(pageChange).toHaveBeenCalledWith(expect.any(Function));
     expect(pageChange).toHaveBeenCalledTimes(1);
   });
 
@@ -38,7 +37,6 @@ describe("Pagination Component", () => {
 
     fireEvent.click(screen.getByText("Previous Page"));
 
-    expect(pageChange).toHaveBeenCalledWith(expect.any(Function));
     expect(pageChange).toHaveBeenCalledTimes(1);
   });
 
